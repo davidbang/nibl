@@ -38,7 +38,13 @@ var noLoginRequired = function(req, res, next){
 var recipes = {};
 
 app.get('/', loginRequired, function(req, res){
-    res.render("lobby.html", {username: req.session.name});
+
+    res.render("index.html", {username: req.session.name});
+});
+
+app.post('/', function(req, res) {
+    
+
 });
 
 
@@ -80,10 +86,26 @@ app.post('/register', function(req, res){
 	    //set session to username
 	    req.session.name = name;
 	    //redirect to home page
-            res.redirect('/');
+            res.redirect('/profile');
 	}else{
 	    res.render("register.html");
 	};
+    });
+});
+
+
+app.get('profile', loginRequired, function(req, res){
+    res.render("profile.html");
+});
+
+app.post('profile', function(req, res){
+    var username = req.session.name;
+    var name = req.body.name;
+    var preferences = req.body.preferences;
+    db.profileupdate(username, name, preferences, function(passed, msg){
+        if (passed){
+            res.redirect('/');
+        };
     });
 });
 

@@ -1,4 +1,4 @@
-var db = require("mongojs").connect("recipe", ["users"]);
+var db = require("mongojs").connect("recipe", ["users", "profiles", "uploads"]);
 
 /*
  
@@ -7,7 +7,7 @@ var authenticate = function(user, pword, callback){
     if (user && pword){
         db.users.count({"user":user, "password":pword}, function(err, count){
             if (err) console.log(err);
-            if (count == 1){
+            if (count >= 1){
                 callback(true, "Successfully authenticated.");
             }else if (count == 0){
                 callback(false, "Wrong username or password.");
@@ -36,7 +36,21 @@ var register = function(user, pword, pwordConfirm, callback){
     });
 };
 
+var profileupdate = function (user, name, preferences,callback){
+    db.profiles.save({"user": user, "name": names, "preferences": preferences, "rating":0, "followers":0, 
+    "favorites":0});
+    callback(true, "Updated profile");
+};
+
+var upload = function (user, url, nutrition, recipe, callback){
+    db.uploads.save({"user": user, "image":url, "nutrition": nutrition, "recipe": recipe});
+    callback(true, "Uploaded Recipe");
+}
+
 //WORDS FUNCTION
 
 exports.validLogin = authenticate;
 exports.register = register;
+exports.profileupdate = profileupdate;
+exports.upload = upload
+
