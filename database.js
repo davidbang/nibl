@@ -43,9 +43,14 @@ var profileupdate = function (user, name, preferences,callback){
 };
 
 var upload = function (user, url, nutrition, recipe, callback){
-    db.uploads.save({"user": user, "image":url, "nutrition": nutrition, "recipe": recipe});
+    db.uploads.save({"user": user, "image":url, "nutrition": nutrition, "recipe": recipe, "rating":-1});
     callback(true, "Uploaded Recipe");
-}
+};
+
+var lookup = function(user, callback){
+    var tmp = db.uploads.find({"user": user});
+    callback(tmp);
+};
 
 //WORDS FUNCTION
 
@@ -53,4 +58,5 @@ exports.validLogin = authenticate;
 exports.register = register;
 exports.profileupdate = profileupdate;
 exports.upload = upload
+exports.lookup = lookup
 

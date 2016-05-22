@@ -29,7 +29,7 @@ var loginRequired = function(req, res, next){
 
 var noLoginRequired = function(req, res, next){
     if (req.session.name){
-        res.redirect('/');
+        next();
     }else{
         next();
     };
@@ -37,14 +37,58 @@ var noLoginRequired = function(req, res, next){
 
 var recipes = {};
 
-app.get('/', loginRequired, function(req, res){
 
+app.get('/', loginRequired, function(req, res){
     res.render("index.html", {username: req.session.name});
 });
 
-app.post('/', function(req, res) {
-    
+app.post('/', function(req, res){
+    res.render("index.html", {username: req.session.name});
+});
 
+app.get('/profile', function(req, res){
+    //var s = db.lookup(req.session.name);
+    var s = [{image:"food1.jpg"},
+    {image:"food2.jpg"},
+    {image:"food1.jpg"},
+    {image:"food2.jpg"},
+    {image:"food1.jpg"},
+    {image:"food2.jpg"}];
+
+
+    if (s.length = 1){
+        res.render("profile.html", {username: req.session.name, i1: s[0].image});
+    }
+    else if (s.length = 2){
+        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[0].image});
+    }
+    else if (s.length = 3){
+        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image});    
+    }
+    else if (s.length = 4){
+        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
+        i4:s[3].image});      
+    }
+    else if (s.length = 5){
+        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
+        i4:s[3].image, i5:s[4].image}); 
+    }
+    else if (s.length >= 6){
+        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
+        i4:s[3].image, i5:s[4].image, i6:s[5].image}); 
+    }
+    else{
+        res.render("profile.html", {username: req.session.name});
+    };
+});
+
+app.post('/profile', function(req, res) {
+    if (req.body.update){
+        res.redirect("profileupdate.html");
+    }
+    else {
+        res.render("profile.html");
+    };
 });
 
 
@@ -65,7 +109,7 @@ app.post('/login', noLoginRequired, function(req, res){
 	    //set session to username
 	    req.session.name = name;
 	    //redirect to home page
-            res.redirect('/');
+        res.redirect('/profile');
 	}else{
             res.render("login.html", {error: msg});
 	    //console.log(msg);
@@ -86,7 +130,7 @@ app.post('/register', function(req, res){
 	    //set session to username
 	    req.session.name = name;
 	    //redirect to home page
-            res.redirect('/profile');
+        res.redirect('/profile');
 	}else{
 	    res.render("register.html");
 	};
@@ -94,11 +138,12 @@ app.post('/register', function(req, res){
 });
 
 
-app.get('profile', loginRequired, function(req, res){
-    res.render("profile.html");
+app.get('/profileupdate', loginRequired, function(req, res){
+
+    res.render("profileupdate.html");
 });
 
-app.post('profile', function(req, res){
+app.post('/profileupdate', function(req, res){
     var username = req.session.name;
     var name = req.body.name;
     var preferences = req.body.preferences;
@@ -108,6 +153,22 @@ app.post('profile', function(req, res){
         };
     });
 });
+
+app.get('/upload', function(req, res){
+    res.render("upload.html");
+});
+
+app.post('/upload', function(req, res){
+    var url = req.body.url
+    var recipe = req.body.recipe
+    var nutrition = req.body.nutrition
+    db.upload(req.session.name, url, nutrition, recipe,function(passed, msg){
+        if (passed){
+            res.redirect('/profile');
+        };
+    });
+});
+
 
 //routes end here
 
