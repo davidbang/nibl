@@ -37,7 +37,7 @@ var register = function(user, pword, pwordConfirm, callback){
 };
 
 var profileupdate = function (user, name, preferences,callback){
-    db.profiles.save({"user": user, "name": names, "preferences": preferences, "rating":0, "followers":0, 
+    db.profiles.save({"user": user, "name": name, "preferences": preferences, "rating":0, "followers":0, 
     "favorites":0});
     callback(true, "Updated profile");
 };

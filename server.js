@@ -137,13 +137,14 @@ app.post('/register', function(req, res){
 
 app.get('/profileupdate', loginRequired, function(req, res){
 
-    res.render("profileupdate.html",{user: req.session.name});
+    res.render("profileupdate.html",{username: req.session.name,user: req.session.name});
 });
 
 
 app.post('/profileupdate', function(req, res){
     var username = req.session.name;
     var preferences = req.body.preferences;
+    var name = req.session.name;
     db.profileupdate(username, name, preferences, function(passed, msg){
         if (passed){
             res.redirect('/profile2');
