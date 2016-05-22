@@ -5,7 +5,9 @@
     <title>
     Login
     </title>
-      </head>
+
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css">
+
 <style>
     html, body, 
 .container {
@@ -434,19 +436,36 @@ body {
     border-radius: 50%;
 }
     </style>
+</head>
+<header>
+<nav class="navbar navbar-default" style="color:#ecf0f1;z-index: 1000;">
+     <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <ul class="nav navbar-nav">
 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="mainpage"> Welcome {{user}} </a></li>
+      <li style="color:#FFA500"><a href="profile" style="color:#FFA500;font-weight:bold;"><span class="glyphicon glyphicon-user"></span><b> My nibl</b></a></li>
+    </ul>  
+	</div>
+      
+    </nav>
+</header>
 <body>
 <div class="container">
 	<div id="splitlayout" class="splitlayout">
 		<div class="intro">
 			<div class="side side-left">
-				<div class="intro-content">
-                    <h1><img src="./pics/snacks/s1.jpg" class="img-circle" width=200 height=200/><span>Quick Snacks</span></h1>
+				<div class="intro-content"> <a href="fastsnack">
+                    <h1><img src="./pics/snacks/s1.jpg" class="img-circle" width=200 height=200/></a><span>Quick Snacks</span></h1>
 				</div>
 				<div class="overlay"></div>
 			</div>
 			<div class="side side-right">
-				<div class="intro-content"><h1><img src="./pics/snacks/s2.jpg" class="img-circle" width=200 height=200/>
+				<div class="intro-content"><h1><a href="slowsnack">
+				<img src="./pics/snacks/s2.jpg" class="img-circle" width=200 height=200/></a>
 					<span>Longer Luxuries</span></h1>
 				</div>
 				<div class="overlay"></div>
