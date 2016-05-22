@@ -1,55 +1,236 @@
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>
-    Upload Recipe
-    </title>
+<!DOCTYPE HTML>
+<!--
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css">
-    
-  </head>
-
-  <body>
-    <nav class="navbar navbar-default" style="color:#ecf0f1">
-      <div class="nav navbar-nav">
-	<div class="nav navbar-left">
-	  <a class="navbar-brand" href="register">Upload</a>
-	</div>
-      </div>
-    </nav>
-    <div class="wrapper">
-      {% if error != null %}
-      <div class="alert alert-danger" style="z-index: 50;" role="alert">
-	<strong>Error!</strong> {{error}}
-      </div>
-      {% endif %}
-      <div class="container"> 
-	<h1>
-	  <font size="20" face="Comic sans MS">
-	    nibl
-	  </font>	
-	</h1>
+-->
+<html>
 	
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
 
-  <textarea readonly>
-  {{recipe}}
 
-  </textarea>
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+ 	<body background="pics/background2.png" style="background-color:rgba(0, 0, 0, .5);background-size: 100%;
+;">
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-  <
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+							<!-- Logo -->
+								<a href="/profile" class="logo">
+									<span class="symbol"><img src="images/finallogo1.jpg" alt="" /></span><span style="font-family: font-size: 20pt">
+											My Profile
+									</span>
+								</a>
 
-    <textarea readonly>
-  {{nutrition}}
+							<!-- Nav -->
+								<nav>
+									<ul>
+									
+									</ul>
+								</nav>
 
-  </textarea>
+						</div>
+					</header>
 
-   
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+				<!-- Main -->
+					<div  id="main">
+						<div class="inner">
+							<header>
+								<img src="profile1.jpg">
+								<span style="font-family: Impact; font-size: 20pt">{{username}}</span>
 
-    <script src="index.js"></script>
+								<br>
+								<span style="font-family: Impact; font-size: 13pt">31 Followers</span> <br>
+								<span style="font-family: Impact; font-size: 13pt">862 Favorites</span>
+							<br><br>
+							<form class="form" method="POST">
+	 	 						<input type="submit" name="update" value="Update" id="login-button">
+							</form>
+							</header>
+							<section class="tiles">
+								<article class="style1">
+									<span class="image">
+										<img src="images/snacks01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Mexican Chips with Cheese</h2>
+										<div class="content">
+											<p>89 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image">
+										<img src="images/snacks02.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Strawberry Cookies</h2>
+										<div class="content">
+											<p>120 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image">
+										<img src="images/snacks03.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Hershey's Snack Mix</h2>
+										<div class="content">
+											<p>101 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style4">
+									<span class="image">
+										<img src="images/snacks04.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Hershey's Fiesta Fantasy Cake</h2>
+										<div class="content">
+											<p>35 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="images/snacks05.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Macaroons</h2>
+										<div class="content">
+											<p>116 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style6">
+									<span class="image">
+										<img src="images/snacks06.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Curly Pretzels</h2>
+										<div class="content">
+											<p>90 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image">
+										<img src="images/snacks07.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Homemade Ice Cream</h2>
+										<div class="content">
+											<p>67 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image">
+										<img src="images/snacks08.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Homemade Summer Smoothies</h2>
+										<div class="content">
+											<p>78 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style1">
+									<span class="image">
+										<img src="images/snacks09.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Blueberry Pancakes</h2>
+										<div class="content">
+											<p>85 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="images/snacks10.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Fruit Skewers</h2>
+										<div class="content">
+											<p>45 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style6">
+									<span class="image">
+										<img src="images/snacks11.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Assorted Donuts</h2>
+										<div class="content">
+											<p>20 Favorites</p>
+										</div>
+									</a>
+								</article>
+								<article class="style4">
+									<span class="image">
+										<img src="images/snacks12.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Greek Yogurt with Fruit and Granola</h2>
+										<div class="content">
+											<p>16 Favorites</p>
+										</div>
+									</a>
+								</article>
+							</section>
+						</div>
+					</div>
 
-    
-  </body>
+				<!-- Footer -->
+					<footer id="footer" background="pics/background2.png">
+						<div class="inner">
+							<section>
+								<h2></h2>
+								<form method="post" action="#">
+									<div class="field half first">
+										
+									</div>
+									<div class="field half">
+										
+									</div>
+									<div class="field">
+										
+									</div>
+									<ul class="actions">
+										
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2></h2>
+								<ul class="icons">
+
+								</ul>
+							</section>
+							<ul class="copyright">
+								
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
-

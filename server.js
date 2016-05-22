@@ -39,62 +39,58 @@ var recipes = {};
 
 
 app.get('/', loginRequired, function(req, res){
-    res.render("index.html", {username: req.session.name});
+    res.render("home.html", {username: req.session.name});
 });
 
 app.post('/', function(req, res){
-    res.render("index.html", {username: req.session.name});
+    res.render("home.html", {username: req.session.name});
 });
 
 app.get('/profile', function(req, res){
     //var s = db.lookup(req.session.name);
-    var s = [{image:"food1.jpg"},
-    {image:"food2.jpg"},
+    var s = [{image:"food0.jpg"},
     {image:"food1.jpg"},
     {image:"food2.jpg"},
-    {image:"food1.jpg"},
-    {image:"food2.jpg"}];
+    {image:"food3.jpg"},
+    {image:"food4.jpg"},
+    {image:"food5.jpg"}];
 
 
     if (s.length = 1){
-        res.render("profile.html", {username: req.session.name, i1: s[0].image});
+        res.render("index.html", {username: req.session.name, i1: s[0].image});
     }
     else if (s.length = 2){
-        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[0].image});
+        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[0].image});
     }
     else if (s.length = 3){
-        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image});    
+        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image});    
     }
     else if (s.length = 4){
-        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
+        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
         i4:s[3].image});      
     }
     else if (s.length = 5){
-        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
+        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
         i4:s[3].image, i5:s[4].image}); 
     }
     else if (s.length >= 6){
-        res.render("profile.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
+        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
         i4:s[3].image, i5:s[4].image, i6:s[5].image}); 
     }
     else{
-        res.render("profile.html", {username: req.session.name});
+        res.render("index.html", {username: req.session.name});
     };
 });
 
 app.post('/profile', function(req, res) {
     if (req.body.update){
-        res.redirect("profileupdate.html");
+        res.redirect("/profileupdate");
     }
     else {
-        res.render("profile.html");
+        res.render("index.html");
     };
 });
 
-
-app.get("/lobby.js", function(req,res){
-    res.render("lobby.js", {username: req.session.name});
-});
 
 app.get('/login', noLoginRequired, function(req, res){
     res.render("login.html");
@@ -149,14 +145,29 @@ app.post('/profileupdate', function(req, res){
     var preferences = req.body.preferences;
     db.profileupdate(username, name, preferences, function(passed, msg){
         if (passed){
-            res.redirect('/');
+            res.redirect('/profile2');
         };
     });
 });
 
+app.get('/profile2', function(req, res){
+    res.render("profile2.html", {username: req.session.name});
+});
+
+app.post('/profile2', function(req, res) {
+    if (req.body.update){
+        res.redirect("profileupdate.html");
+    }
+    else {
+        res.render("profile2.html");
+    };
+});
+
+
 app.get('/upload', function(req, res){
     res.render("upload.html");
 });
+
 
 app.post('/upload', function(req, res){
     var url = req.body.url
@@ -167,6 +178,15 @@ app.post('/upload', function(req, res){
             res.redirect('/profile');
         };
     });
+});
+
+app.get('/fastsnack', function(req, res){
+    res.render("fastsnack.html");
+});
+
+
+app.get('/slowsnack', function(req, res){
+    res.render("slowsnack.html");
 });
 
 
