@@ -24,7 +24,7 @@ body{
 }
 .inner-container{
   width:400px;
-  height:400px;
+  height:475px;
   position:absolute;
   top:calc(50vh - 200px);
   left:calc(50vw - 200px);
@@ -91,13 +91,6 @@ body{
   </head>
 
   <body>
-    <nav class="navbar navbar-default" style="color:#ecf0f1">
-      <div class="nav navbar-nav">
-	<div class="nav navbar-left">
-	  <a class="navbar-brand" href="login">Login</a>
-	</div>
-      </div>
-    </nav>
     {% if error != null %}
     <div class="alert alert-danger" style="z-index: 50;" role="alert">
       <strong>Error!</strong> {{error}}
@@ -109,16 +102,18 @@ body{
       <source src="login.mp4" type="video/mp4">
   </video>
 </div>
+          <p style="text-align:center;"> <br /> <br /> <br /> <br /> <br /><img src="/nibl.png" style="width:202px;height:91px;" alt="nibl prototype"/> </p> 
     <div class="inner-container">
         <div class="box">
-            <h1>Join nibl</h1>
+            <h1>Become a <dev style="color:orange;"><b>nibler</b></dev></h1>
 	
 	<form class="form" method="POST">
 	  <input type="text" name="username" placeholder="Username">
 	  <input type="password" name="password" placeholder="Password">
 	  <input type="password" name="passwordConfirm" placeholder="Confirm Password">
-	  <input type="submit" name="Register" value="Register" id="login-button">
+	  <input type="submit" name="Register" value="Register" id="login-button"> 
 	</form>
+            <p><a href="login">Back to Login</a></p>
  
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
