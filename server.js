@@ -126,7 +126,7 @@ app.post('/register', function(req, res){
 	    //set session to username
 	    req.session.name = name;
 	    //redirect to home page
-        res.redirect('/profile');
+        res.redirect('/login');
 	}else{
 	    res.render("register.html");
 	};
@@ -141,7 +141,6 @@ app.get('/profileupdate', loginRequired, function(req, res){
 
 app.post('/profileupdate', function(req, res){
     var username = req.session.name;
-    var name = req.body.name;
     var preferences = req.body.preferences;
     db.profileupdate(username, name, preferences, function(passed, msg){
         if (passed){
@@ -175,14 +174,20 @@ app.post('/upload', function(req, res){
     var nutrition = req.body.nutrition
     db.upload(req.session.name, url, nutrition, recipe,function(passed, msg){
         if (passed){
-            res.redirect('/profile');
+            res.redirect('/profile2');
         };
     });
 });
 
+app.get('/mainpage', function(req, res){
+    res.render("mainpage.html", {username: req.session.name});
+});
+
+
 app.get('/fastsnack', function(req, res){
     res.render("fastsnack.html");
 });
+
 
 
 app.get('/slowsnack', function(req, res){
