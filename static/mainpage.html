@@ -63,15 +63,15 @@ body {
 
 .side-left {
 	left: 0;
-	background: #47a3da;
+	background: #f4a460;
 	color: #fff;
-	outline: 1px solid #47a3da; /* avoid gap */
+	outline: 1px solid #f4a460; /* avoid gap */
 }
 
 .side-right {
 	right: 0;
 	background: #fff;
-	color: #47a3da;
+	color: #f4a460;
 	outline: 1px solid #fff; /* avoid gap */
 }
 
@@ -143,7 +143,7 @@ body {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	color: #47a3da;
+	color: #f4a460;
 	text-align: center;
 	font-size: 22px;
 	line-height: 44px;
@@ -421,6 +421,7 @@ body {
 	.back-right {
 		right: 6.25%;
 	}
+    
 }
 
 @media screen and (max-width: 42.5em) {
@@ -442,6 +443,10 @@ body {
 @media screen and (max-width: 320px) {
 	body { font-size: 70%; }
 }
+    
+    .img-circle {
+    border-radius: 50%;
+}
     </style>
 
 <body>
@@ -450,13 +455,13 @@ body {
 		<div class="intro">
 			<div class="side side-left">
 				<div class="intro-content">
-					<h1><span>Quick Snacks</span></h1>
+                    <h1><img src="./pics/snacks/s1.jpg" class="img-circle" width=200 height=200/><span>Quick Snacks</span></h1>
 				</div>
 				<div class="overlay"></div>
 			</div>
 			<div class="side side-right">
-				<div class="intro-content">
-					<h1><span>Longer Luxuries</span></h1>
+				<div class="intro-content"><h1><img src="./pics/snacks/s2.jpg" class="img-circle" width=200 height=200/>
+					<span>Longer Luxuries</span></h1>
 				</div>
 				<div class="overlay"></div>
 			</div>
