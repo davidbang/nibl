@@ -164,7 +164,7 @@ app.post('/profile2', function(req, res) {
 
 
 app.get('/upload', function(req, res){
-    res.render("upload.html");
+    res.render("rupload.html");
 });
 
 
@@ -172,7 +172,9 @@ app.post('/upload', function(req, res){
     var url = req.body.url
     var recipe = req.body.recipe
     var nutrition = req.body.nutrition
-    db.upload(req.session.name, url, nutrition, recipe,function(passed, msg){
+    var picture = req.body.picture
+    var sname = req.body.snackname
+    db.upload(req.session.name, url, sname, nutrition, picture, recipe,function(passed, msg){
         if (passed){
             res.redirect('/profile2');
         };
@@ -180,7 +182,7 @@ app.post('/upload', function(req, res){
 });
 
 app.get('/mainpage', function(req, res){
-    res.render("mainpage.html", {username: req.session.name});
+    res.render("mainpage.html", {user: req.session.name});
 });
 
 

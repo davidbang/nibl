@@ -42,8 +42,9 @@ var profileupdate = function (user, name, preferences,callback){
     callback(true, "Updated profile");
 };
 
-var upload = function (user, url, nutrition, recipe, callback){
-    db.uploads.save({"user": user, "image":url, "nutrition": nutrition, "recipe": recipe, "rating":0});
+var upload = function (user, url, sname, nutrition, picture, recipe, callback){
+    db.uploads.save({"user": user, "image":url, "sname": sname, "nutrition": nutrition, "recipe": recipe, 
+        "rating":0, "picture": picture});
     callback(true, "Uploaded Recipe");
 };
 
