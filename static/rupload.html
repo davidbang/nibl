@@ -7,6 +7,7 @@
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css">
 
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
@@ -14,6 +15,25 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
+<header>
+<nav class="navbar navbar-default" style="color:#ecf0f1;z-index: 1000;">
+     <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <ul class="nav navbar-nav">
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="mainpage"> Welcome {{user}} </a></li>
+      <li><a href="upload"> Upload Recipe </a></li>
+      <li style="color:#FFA500"><a href="mainpage" style="font-weight:bold;"><span class="glyphicon glyphicon-user"></span><b> Home</b></a></li>
+
+      <li style="color:#FFA500"><a href="profile" style="color:#FFA500;font-weight:bold;"><span class="glyphicon glyphicon-user"></span><b> My nibl</b></a></li>
+    </ul>  
+	</div>
+      
+    </nav>
+</header>
 
 <body>
 	<div class="container" style="width:100%">
@@ -24,22 +44,23 @@
 			<div class="box-header" style="width:100%">
 				<h2>What are you eating?</h2>
 			</div>
+			<form class="form" method="POST">
 			<label for="username" >Snack/Recipe Name*</label>
 			<br/>
-			<textarea rows="2" cols="80" id="TITLE">
+			<textarea rows="2" cols="75" id="TITLE">
 </textarea>			<br/>
-		<label for="picture">Picture(URL)*</label>   <br/>  <textarea rows="4" cols="80" id="TITLE"> </textarea> <br/>	<label for="password">Nutrition Facts</label>
+		<label for="picture">Picture(URL)*</label>   <br/>  <textarea rows="4" cols="75" id="TITLE"> </textarea> <br/>	<label for="password">Nutrition Facts</label>
 			<br/>
-			<textarea rows="8" cols="80" id="TITLE">
+			<textarea rows="8" cols="75" id="TITLE">
 </textarea>
 			<br/>
 	<label for="ingredients">Ingredients</label>	<br/>
-   <textarea rows="8" cols="80" id="TITLE">
+   <textarea rows="8" cols="75" id="TITLE">
 </textarea>
 	<br/> 		<label for="cooking instructions">Cooking Instructions</label>	<br/>
-   <textarea rows="8" cols="80" id="TITLE">
+   <textarea rows="8" cols="75" id="TITLE">
 </textarea>
- <br/>	<br/> <button type="submit">Submit Recipe</button>
+ <br/>	<br/> <button type="submit">Submit Recipe</button> </form>
 			<br/>
   <br/> <a href="#">Boxes labeled with a * symbol are required.<p class="small"></p></a>
 		</div>

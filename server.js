@@ -39,7 +39,7 @@ var recipes = {};
 
 
 app.get('/', loginRequired, function(req, res){
-    res.render("home.html", {username: req.session.name});
+    res.render("home.html", {username: req.session.name, user: req.session.name});
 });
 
 app.post('/', function(req, res){
@@ -57,28 +57,29 @@ app.get('/profile', function(req, res){
 
 
     if (s.length = 1){
-        res.render("index.html", {username: req.session.name, i1: s[0].image});
+        res.render("index.html", {username: req.session.name, i1: s[0].image, user: req.session.name});
+
     }
     else if (s.length = 2){
-        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[0].image});
+        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[0].image, user: req.session.name});
     }
     else if (s.length = 3){
-        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image});    
+        res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image, user: req.session.name}); 
     }
     else if (s.length = 4){
         res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
-        i4:s[3].image});      
+        i4:s[3].image, user: req.session.name});   
     }
     else if (s.length = 5){
         res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
-        i4:s[3].image, i5:s[4].image}); 
+        i4:s[3].image, i5:s[4].image, user: req.session.name});
     }
     else if (s.length >= 6){
         res.render("index.html", {username: req.session.name, i1: s[0].image, i2:s[1].image, i3:s[2].image,
-        i4:s[3].image, i5:s[4].image, i6:s[5].image}); 
+        i4:s[3].image, i5:s[4].image, i6:s[5].image, user: req.session.name});
     }
     else{
-        res.render("index.html", {username: req.session.name});
+        res.render("index.html", {username: req.session.name, user: req.session.name});
     };
 });
 
@@ -87,7 +88,7 @@ app.post('/profile', function(req, res) {
         res.redirect("/profileupdate");
     }
     else {
-        res.render("index.html");
+        res.render("index.html", {user: req.session.name});
     };
 });
 
@@ -105,7 +106,7 @@ app.post('/login', noLoginRequired, function(req, res){
 	    //set session to username
 	    req.session.name = name;
 	    //redirect to home page
-        res.redirect('/profile');
+        res.redirect('/mainpage');
 	}else{
             res.render("login.html", {error: msg});
 	    //console.log(msg);
@@ -136,8 +137,9 @@ app.post('/register', function(req, res){
 
 app.get('/profileupdate', loginRequired, function(req, res){
 
-    res.render("profileupdate.html");
+    res.render("profileupdate.html",{user: req.session.name});
 });
+
 
 app.post('/profileupdate', function(req, res){
     var username = req.session.name;
@@ -150,8 +152,9 @@ app.post('/profileupdate', function(req, res){
 });
 
 app.get('/profile2', function(req, res){
-    res.render("profile2.html", {username: req.session.name});
+    res.render("profile2.html", {username: req.session.name, user: req.session.name});
 });
+
 
 app.post('/profile2', function(req, res) {
     if (req.body.update){
@@ -164,7 +167,7 @@ app.post('/profile2', function(req, res) {
 
 
 app.get('/upload', function(req, res){
-    res.render("rupload.html");
+    res.render("rupload.html", {user: req.session.name});
 });
 
 
@@ -178,7 +181,10 @@ app.post('/upload', function(req, res){
         if (passed){
             res.redirect('/profile2');
         };
-    });
+    })
+    
+    res.redirect('/profile2');
+    
 });
 
 app.get('/mainpage', function(req, res){
@@ -187,14 +193,16 @@ app.get('/mainpage', function(req, res){
 
 
 app.get('/fastsnack', function(req, res){
-    res.render("fastsnack.html");
+    res.render("fastsnack.html",{user: req.session.name});
 });
+
 
 
 
 app.get('/slowsnack', function(req, res){
-    res.render("slowsnack.html");
+    res.render("slowsnack.html",{user: req.session.name});
 });
+
 
 
 //routes end here
