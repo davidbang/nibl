@@ -2789,6 +2789,7 @@
 		body.is-touch .tiles article .content {
 			max-height: 15em;
 			opacity: 1;
+            text-align: left;
 		}
 
 		@media screen and (max-width: 1280px) {
