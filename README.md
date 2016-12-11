@@ -9,6 +9,10 @@ Won the Hershey Grand Prize of $2000 with Nibl, a social media platform for food
 https://davidbang.github.io/#projects
 login page view available on projects page of my website
 
-To run application, type in node server.js into terminal and open up http://localhost:5000/ in browser.
+To run application, type in 
+
+####node server.js 
+
+into terminal and open up http://localhost:5000/ in browser.
 
 ###Screenshots available at http://www.hackathon.io/63229 
